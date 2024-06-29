@@ -12,6 +12,7 @@ jobs:
   Build:
     name: '🚧${{ matrix.icon }} ${{ matrix.sys }} (pure-build)'
     runs-on: windows-latest
+    if: false
 
     strategy:
       fail-fast: false

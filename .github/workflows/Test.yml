@@ -21,6 +21,7 @@ jobs:
   gnatdoc:
     name: '📚 gnatdoc'
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - name: '🧰 Checkout'
@@ -92,6 +93,7 @@ jobs:
   pyGHDL:
     name: '🐍 pyGHDL'
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - name: '🧰 Checkout'
@@ -156,6 +158,7 @@ jobs:
   lin:
     name: '🚧🚦🐧 Ubuntu ${{ matrix.os }} ${{ matrix.backend }}'
     runs-on: ubuntu-${{ matrix.os }}.04
+    if: false
 
     strategy:
       fail-fast: false

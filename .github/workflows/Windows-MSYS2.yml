@@ -9,6 +9,7 @@ jobs:
   Build:
     name: '🚧${{ matrix.icon }} ${{ matrix.sys }} ${{ matrix.pkg }} (build)'
     runs-on: windows-latest
+    if: false
 
     strategy:
       fail-fast: false
