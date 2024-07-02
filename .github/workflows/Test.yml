@@ -230,7 +230,6 @@ jobs:
           mv ghdl-*.tgz ghdl-macos${{ matrix.os }}-${RUNNER_ARCH}-${{ matrix.backend }}.tgz
         env:
           TASK: macosx+${{ matrix.backend }}
-          GITHUB_OS: ${{ runner.os }}
           GITHUB_OS_VER: ${{ matrix.os }}
 #          MACOSX_DEPLOYMENT_TARGET: '10.15'
 

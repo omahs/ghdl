@@ -308,6 +308,8 @@ build () {
 
   if [ "x$IS_MACOS" = "xtrue" ]; then
       otool -L $INSTALL_DIR/usr/local/bin/ghdl
+  else
+      ldd $INSTALL_DIR/usr/local/bin/ghdl
   fi
 
   make --version | grep 'Make'
@@ -472,7 +474,7 @@ EOF
 echo "command: $0 $@"
 
 unset IS_MACOS
-if [ "$GITHUB_OS" = "macOS" ]; then
+if [ $(uname -s) = "Darwin" ]; then
   IS_MACOS="true"
 fi
 
