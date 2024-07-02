@@ -34,6 +34,7 @@ GNATMAKE=${GNATMAKE:-gnatmake}
 ADA_FLAGS=${ADA_FLAGS:-}
 MAKE=${MAKE:-make}
 LDFLAGS=${LDFLAGS:-}
+LLVM_CONFIG_FLAGS=
 prefix=/usr/local
 libdirsuffix=lib
 libghdldirsuffix=lib/ghdl
@@ -69,6 +70,7 @@ enable_gplcompat enable_libghdl libghdl_version ghdl_version
 with_sundials sundials_incflags sundials_ldflags
 COMPILER_GCC COMPILER_DEBUG COMPILER_MCODE COMPILER_LLVM POST_PROCESSOR
 INSTALL_PREFIX LIBDIR_SUFFIX LIBGHDLDIR_SUFFIX INCDIR_SUFFIX
+LLVM_CONFIG_FLAGS
 "
 
 # Find srcdir
@@ -102,7 +104,7 @@ check_version()
 for opt do
   optarg=`expr x"$opt" : 'x[^=]*=\(.*\)'`
   case "$opt" in
-    CC=*|CFLAGS=*|GNATMAKE=*|LDFLAGS=*|CXX=*)
+    CC=*|CFLAGS=*|GNATMAKE=*|LDFLAGS=*|CXX=*|LLVM_CONFIG_FLAGS=*)
       optvar=`expr x"$opt" : 'x\([^=]*\)=.*'`
       eval $optvar=\"$optarg\"
       ;;

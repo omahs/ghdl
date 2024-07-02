@@ -263,7 +263,7 @@ build () {
 
   if [ "x$IS_MACOS" = "xtrue" -a "$GITHUB_OS_VER" -ge 13 ]; then
       # Use classic ld and not lld (which simply crashes)
-      CONFIG_OPTS+=" LDFLAGS=-Wl,-ld_classic"
+      CONFIG_OPTS+=" LDFLAGS=-Wl,-ld_classic LLVM_CONFIG_FLAGS=--link-static"
   fi
 
   if [ ! "`echo $BACK | grep gcc`" ]; then
