@@ -220,6 +220,7 @@ jobs:
       - name: '🚧 Build and 🚦 Test GHDL'
         run: |
           if expr "${{matrix.backend}}" : "llvm" > /dev/null; then
+            brew install zstd
             brew install llvm
             echo $(brew --prefix llvm)
             echo $(brew --prefix llvm@18)
