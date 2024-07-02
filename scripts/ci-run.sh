@@ -302,14 +302,22 @@ build () {
 
   #--- build tools versions
 
-  {
-      make --version | grep 'Make'
-      gnatls --version | grep 'GNATLS'
-      gcc --version | grep 'gcc'
-      if [ "$CXX" != "" ]; then
-          $CXX --version | grep 'clang'
-      fi
-  } > BUILD_TOOLS
+  gstart "[GHDL - info] Info about tools"
+
+  uname -s
+
+  if [ "x$IS_MACOS" = "xtrue" ]; then
+      otool -L $INSTALL_DIR/usr/local/bin/ghdl
+  fi
+
+  make --version | grep 'Make'
+  gnatls --version | grep 'GNATLS'
+  gcc --version | grep 'gcc'
+  if [ "$CXX" != "" ]; then
+      $CXX --version | grep 'clang'
+  fi
+
+  gend
 
   #---
 
