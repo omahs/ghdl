@@ -108,6 +108,11 @@ for opt do
       optvar=`expr x"$opt" : 'x\([^=]*\)=.*'`
       eval $optvar=\"$optarg\"
       ;;
+    'CFLAGS+='*|'LDFLAGS+='*|'LLVM_CONFIG_FLAGS+='*)
+      optvar=`expr x"$opt" : 'x\([^+]*\)+=.*'`
+      oldval=`expr \\\$$optvar`
+      eval $optvar=\"$oldval $optarg\"
+      ;;
     --prefix=*)             prefix="$optarg";;
     --srcdir=*)             srcdir="$optarg";;
     --libdir=*)             libdirsuffix="$optarg";;
