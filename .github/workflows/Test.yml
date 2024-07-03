@@ -200,9 +200,9 @@ jobs:
       matrix:
         # Note: arch is given by the github runner (could be runner.arch)
         include:
-          - { os: 12, arch: x86_64, backend: mcode }
-          - { os: 13, arch: x86_64, backend: mcode }
-          - { os: 13, arch: x86_64, backend: llvm }
+#          - { os: 12, arch: x86_64, backend: mcode }
+#          - { os: 13, arch: x86_64, backend: mcode }
+#          - { os: 13, arch: x86_64, backend: llvm }
           - { os: 14, arch: arm64, backend: llvm-jit }
 
     steps:

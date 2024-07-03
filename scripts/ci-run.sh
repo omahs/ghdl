@@ -267,6 +267,8 @@ build () {
       CONFIG_OPTS+=" LLVM_CONFIG_FLAGS=--link-static"
       # Work-around
       zstd=$(brew --prefix zstd)
+      echo "zstd: $zstd"
+      ls -lR $zstd/
       CONFIG_OPTS+=" LDFLAGS+=-L$zstd/lib"
   fi
 
