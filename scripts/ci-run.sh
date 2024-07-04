@@ -313,7 +313,10 @@ build () {
   uname -s
 
   if [ "x$IS_MACOS" = "xtrue" ]; then
+      echo "ghdl:"
       otool -L $INSTALL_DIR/usr/local/bin/ghdl
+      echo "libghdlvpi:"
+      otool -L $INSTALL_DIR//usr/local/lib/libghdlvpi.dylib
   else
       ldd $INSTALL_DIR/usr/local/bin/ghdl
   fi
