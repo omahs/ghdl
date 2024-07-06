@@ -264,7 +264,7 @@ build () {
   if [ "x$IS_MACOS" = "xtrue" -a "$GITHUB_OS_VER" -ge 13 ]; then
       # Use classic ld and not lld (which simply crashes)
       CONFIG_OPTS+=" LDFLAGS=-Wl,-ld_classic,-dead_strip,-dead_strip_dylibs"
-      export LLVM_LDFLAGS="$($LLVM_CONFIG --link-static --libfiles)"
+      export LLVM_LDFLAGS="$(llvm-config --link-static --libfiles)"
       echo "LLVM_LDFLAGS: $LLVM_LDFLAGS"
       # Work-around
       #zstd=$(brew --prefix zstd)
