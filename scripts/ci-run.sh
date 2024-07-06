@@ -265,7 +265,7 @@ build () {
       # Use classic ld and not lld (which simply crashes)
       CONFIG_OPTS+=" LDFLAGS=-Wl,-ld_classic"
       libzstd=$(brew --prefix zstd)/lib/libzstd.a
-      export LLVM_LDFLAGS="$(llvm-config --link-static --libfiles --system-libs | sed -e s@-lzstd@$libzstd@)"
+      export LLVM_LDFLAGS="$(llvm-config --link-static --libfiles --system-libs | sed -e s@-lzstd@$libzstd@) -Wl,-dead_strip,-dead_strip_dylibs"
       echo "LLVM_LDFLAGS: $LLVM_LDFLAGS"
       # Work-around
       #zstd=$(brew --prefix zstd)
